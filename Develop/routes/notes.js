@@ -27,12 +27,25 @@ router.post('/', (req, res) => {
   object.id = key;
 
   db.push(object);
+  res.send(db);
   writeFile('./db/db.json', JSON.stringify(db), (err) => {
     if (err) throw err;
     console.log('The file has been saved!');
   });
 });
 
+
+router.delete('/:id', (req, res) => {
+  for (let i = 0; i < db.length; i++) {
+    if(db[i].id === req.params.id)
+      db.splice(i, 1);
+  }
+  res.send(db);
+  writeFile('./db/db.json', JSON.stringify(db), (err) => {
+    if (err) throw err;
+    console.log('The file has been saved!');
+  });
+});
 
 
 module.exports = router;
