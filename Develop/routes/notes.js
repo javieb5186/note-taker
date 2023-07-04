@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const db = require('../db/db.json');
-const {writeFile} = require('fs');
-const {v4: uuidv4} = require('uuid');
+const {uuidv4, writeFile} = require('../helpers/helpers');
 
 
 router.get('/', (req, res) => {
