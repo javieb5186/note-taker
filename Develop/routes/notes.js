@@ -1,12 +1,15 @@
+// import packages and js files.
 const router = require('express').Router();
 const db = require('../db/db.json');
 const {uuidv4, writeFile} = require('../helpers/helpers');
 
-
+// Return database at /notes/ GET
 router.get('/', (req, res) => {
   res.json(db);
 });
 
+// Save to database at /notes/ POST
+// Generate unique id, add id to note, push/return note, and save to database. 
 router.post('/', (req, res) => {
   console.log(req.body);
 
@@ -33,7 +36,8 @@ router.post('/', (req, res) => {
   });
 });
 
-
+// Delete from database at /notes/ DELETE
+// Delete found id, send back new database, and save changes to database.
 router.delete('/:id', (req, res) => {
   for (let i = 0; i < db.length; i++) {
     if(db[i].id === req.params.id)
