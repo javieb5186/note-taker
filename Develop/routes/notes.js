@@ -30,7 +30,7 @@ router.post('/', (req, res) => {
 
   db.push(object);
   res.send(db);
-  writeFile('./db/db.json', JSON.stringify(db), (err) => {
+  writeFile('Develop/db/db.json', JSON.stringify(db), (err) => {
     if (err) throw err;
     console.log('The file has been saved!');
   });
@@ -44,7 +44,7 @@ router.delete('/:id', (req, res) => {
       db.splice(i, 1);
   }
   res.send(db);
-  writeFile('./db/db.json', JSON.stringify(db), (err) => {
+  writeFile('Develop/db/db.json', JSON.stringify(db), (err) => {
     if (err) throw err;
     console.log('The file has been saved!');
   });
