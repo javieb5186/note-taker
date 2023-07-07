@@ -2,6 +2,7 @@
 const express = require('express');
 const path = require('path');
 const api = require('./routes/index');
+const PORT = process.env.PORT || 3001;
 
 // Initialize app and it's middleware
 const app = express();
@@ -20,4 +21,4 @@ app.get('/notes', (req, res) => {
 });
 
 // Start server
-app.listen(3001, () => console.log('Application on http://localhost:3001'));
+app.listen(PORT, () => console.log(`Application on ${PORT}`));
